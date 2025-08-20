@@ -1,1 +1,0 @@
-import{_ as s,c as t,a,d as o}from"./index-3xPQOnlw.js";const c={},n={class:"about"};function r(_,e){return o(),t("div",n,e[0]||(e[0]=[a("h1",null,"This is an about page",-1)]))}const i=s(c,[["render",r],["__scopeId","data-v-6ee4f2ed"]]);export{i as default};
