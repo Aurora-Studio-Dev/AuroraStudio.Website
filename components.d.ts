@@ -10,15 +10,9 @@ declare module 'vue' {
   export interface GlobalComponents {
     ElContainer: typeof import('element-plus/es')['ElContainer']
     ElFooter: typeof import('element-plus/es')['ElFooter']
-    ElHeader: typeof import('element-plus/es')['ElHeader']
     ElMain: typeof import('element-plus/es')['ElMain']
-    ElMenu: typeof import('element-plus/es')['ElMenu']
-    ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
-    ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
     PageFooter: typeof import('./src/components/PageFooter.vue')['default']
     PageNavBar: typeof import('./src/components/PageNavBar.vue')['default']
-    PageNavBarLink: typeof import('./src/components/PageNavBarLink.vue')['default']
-    PageNavLink: typeof import('./src/components/PageNavLink.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }
