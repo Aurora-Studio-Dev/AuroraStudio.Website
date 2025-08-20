@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'SHT';
+  src: url('./fonts/SHT.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Mooli';
+  src: url('./fonts/Mooli.ttf') format('truetype');
+}
+
+body {
+  font-family: 'Mooli';
+}
