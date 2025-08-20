@@ -165,8 +165,8 @@
                   <br />
                   <p class="inline">
                     基于由
-                    <a href="https://www.inkore.net" class="text-blue-600"><i></i>NKORE</a> 开发的
-                    iNKORE.UI.WPF.Modern 设计的 UI 界面，贴合 Windows 11 风格。
+                    <a href="https://www.inkore.net" class="icp text-blue-600">iNKORE</a>
+                    开发的 iNKORE.UI.WPF.Modern 设计的 UI 界面，贴合 Windows 11 风格。
                   </p>
                 </li>
                 <li>
@@ -191,12 +191,12 @@
               </div>
               <div class="flex flex-wrap gap-4">
                 <a
-                  href="#"
+                  href="https://acb.aurorastudio.top"
                   class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded transition-colors"
                   >官网</a
                 >
                 <a
-                  href="#"
+                  href="https://github.com/Aurora-Studio-Dev/Aurora-Chat-Bot"
                   class="bg-black hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded transition-colors"
                   >GitHub</a
                 >
