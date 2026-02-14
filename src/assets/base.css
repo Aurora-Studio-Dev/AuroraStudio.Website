@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'DTJBT';
+  src: url('@/assets/fonts/DingTalk JinBuTi.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'OS4';
+  src: url('@/assets/fonts/OPPO Sans 4.0.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'HSR';
+  src: url('@/assets/fonts/HarmonyOS_Sans_Regular.ttf') format('truetype');
+}
+body {
+  font-family: 'HSR', 'OS4';
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
