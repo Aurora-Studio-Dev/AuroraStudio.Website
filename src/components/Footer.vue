@@ -287,3 +287,4 @@ export default {
 .icp:hover::after {
   width: 100%;
 }
+</style>
