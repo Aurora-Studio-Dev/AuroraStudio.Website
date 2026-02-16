@@ -1,14 +1,17 @@
 <script setup>
 import Editor from 'primevue/editor'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 </script>
 
 <template>
   <div class="contact-section">
     <div class="contact-section-container">
       <div class="contact-section-header">
-        <span class="contact-section-label">Keep in touch with us</span>
+        <span class="contact-section-label">{{ t('home.contact.title.a') }}</span>
         <h3 class="contact-section-title">
-          Don't fall behind, hurry up and
+          {{ t('home.contact.title.b1') }}
           <span
             style="
               background: linear-gradient(to right, white, black);
@@ -16,11 +19,11 @@ import Editor from 'primevue/editor'
               background-clip: text;
               -webkit-text-fill-color: transparent;
             "
-            >catch up.</span
+            >{{ t('home.contact.title.b2') }}</span
           >
         </h3>
         <p class="contact-section-description">
-          Tell us your views about our products and what things you want to see in the future.
+          {{ t('home.contact.description') }}
         </p>
       </div>
 
@@ -28,23 +31,27 @@ import Editor from 'primevue/editor'
         <div class="email-form-container">
           <div class="form-wrapper">
             <Message severity="warn" icon="pi pi-info-circle">
-              Due to the receipt form being abused by bots, we have now shut it down. You can still
-              contact us through the other methods below!</Message
-            >
+              {{ t('home.contact.form.warning') }}
+            </Message>
             <FloatLabel class="item">
               <InputText style="width: 100%" id="username" />
-              <label for="username">Your Name</label>
+              <label for="username">{{ t('home.contact.form.content.name') }}</label>
             </FloatLabel>
             <FloatLabel class="item">
               <InputText style="width: 100%" id="email" />
-              <label for="email">Your Email</label>
+              <label for="email">{{ t('home.contact.form.content.email') }}</label>
             </FloatLabel>
             <FloatLabel class="item">
               <InputText style="width: 100%" id="theme" />
-              <label for="theme">Theme</label>
+              <label for="theme">{{ t('home.contact.form.content.theme') }}</label>
             </FloatLabel>
             <Editor class="item" editorStyle="height: 150px; width: 100%" />
-            <Button label="Send" icon="pi pi-send" class="p-button-outlined item" disabled="true" />
+            <Button
+              :label="t('home.contact.form.content.button')"
+              icon="pi pi-send"
+              class="p-button-outlined item"
+              disabled="true"
+            />
           </div>
         </div>
 
@@ -54,13 +61,7 @@ import Editor from 'primevue/editor'
       </div>
       <div class="background-copyright">
         <div class="copyright-content">
-          <p class="copyright-text">
-            We have communicated with the original author and obtained<br />the '<a
-              href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
-              target="_blank"
-              >CC BY-NC-SA 4.0</a
-            >' authorization from the original author of the image.
-          </p>
+          <p class="copyright-text" v-html="t('home.contact.backgroundCopyrightInfo')" />
         </div>
       </div>
     </div>
@@ -217,27 +218,6 @@ import Editor from 'primevue/editor'
   .copyright-content {
     display: block;
     text-align: center;
-  }
-}
-
-a {
-  position: relative;
-  text-decoration: none;
-  color: #007bff;
-
-  &::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    background-color: #007bff;
-    left: 0;
-    bottom: -2px;
-    transition: width 0.3s ease;
-  }
-
-  &:hover::after {
-    width: 100%;
   }
 }
 </style>

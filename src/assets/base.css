@@ -6,13 +6,40 @@
   font-family: 'OS4';
   src: url('@/assets/fonts/OPPO Sans 4.0.ttf') format('truetype');
 }
+
 @font-face {
   font-family: 'HSR';
   src: url('@/assets/fonts/HarmonyOS_Sans_Regular.ttf') format('truetype');
 }
+
 body {
   font-family: 'HSR', 'OS4';
   margin: 0;
   padding: 0;
   user-select: none;
+}
+
+.link {
+  position: relative;
+  text-decoration: none;
+  color: #007bff;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #007bff;
+  left: 0;
+  bottom: -2px;
+  transition: width 0.3s ease;
+}
+
+.link:hover::after {
+  width: 100%;
+}
+
+img {
+  pointer-events: none;
 }

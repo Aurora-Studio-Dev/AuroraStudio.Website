@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { gsap } from 'gsap'
+import { useI18n } from 'vue-i18n'
 
-const toolsScrollerRef = ref<HTMLDivElement>()
+const { t, locale } = useI18n()
+
 const toolsTrackRef = ref<HTMLDivElement>()
-const toolsTitleRef = ref<HTMLHeadingElement>()
-const toolsSubtitleRef = ref<HTMLParagraphElement>()
-
 onMounted(() => {
   if (toolsTrackRef.value) {
     const toolItems = toolsTrackRef.value.children
@@ -57,10 +56,10 @@ onMounted(() => {
     <div class="tools-section-content">
       <div class="glassmorphism-island">
         <div class="island-header">
-          <span class="island-label">Development Tools</span>
-          <h3 class="island-title">Modern Development Stack</h3>
+          <span class="island-label">{{ t('home.tools.title.a') }}</span>
+          <h3 class="island-title">{{ t('home.tools.title.b') }}</h3>
           <p class="island-description">
-            A comprehensive set of tools and frameworks for modern APP development
+            {{ t('home.tools.description') }}
           </p>
         </div>
 

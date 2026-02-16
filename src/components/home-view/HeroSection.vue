@@ -1,14 +1,15 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { gsap } from 'gsap'
+import { useI18n } from 'vue-i18n'
 
-const heroContentRef = ref<HTMLDivElement>()
+const { t } = useI18n()
+
 const titleRef = ref<HTMLHeadingElement>()
 const subtitleRef = ref<HTMLParagraphElement>()
 const buttonGroupRef = ref<HTMLDivElement>()
 
 onMounted(() => {
-  // Hero content entrance animation
   if (titleRef.value && subtitleRef.value && buttonGroupRef.value) {
     gsap
       .timeline({
@@ -44,7 +45,6 @@ onMounted(() => {
       )
   }
 
-  // Add button hover animations
   if (buttonGroupRef.value) {
     const buttons = buttonGroupRef.value.children
     for (let i = 0; i < buttons.length; i++) {
@@ -103,13 +103,13 @@ onMounted(() => {
         >future.</span
       >
     </h3>
-    <p ref="subtitleRef">
-      Make dream happen!<br />At the forefront of technology, create limitless possibilities.
+    <p style="white-space: pre-line">
+      {{ t('home.hero.description') }}
     </p>
     <div class="button-group" ref="buttonGroupRef">
-      <Button icon="pi pi-file" severity="contrast" label="Learn about products" />
-      <Button icon="pi pi-users" severity="contrast" label="Keep in touch" />
-      <Button icon="pi pi-github" severity="contrast" label="Visit GitHub page" />
+      <Button icon="pi pi-file" severity="contrast" :label="t('home.hero.buttons.a')" />
+      <Button icon="pi pi-users" severity="contrast" :label="t('home.hero.buttons.b')" />
+      <Button icon="pi pi-github" severity="contrast" :label="t('home.hero.buttons.c')" />
     </div>
   </div>
 </template>
@@ -120,11 +120,14 @@ onMounted(() => {
   z-index: 2;
   text-align: center;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+
   h3 {
     font-family: 'DTJBT', sans-serif;
     font-size: 4rem;
@@ -139,8 +142,8 @@ onMounted(() => {
   p {
     font-family: 'OS4', sans-serif;
     font-size: 1.25rem;
-    margin: 0;
-    padding: 20px;
+    margin: 20px 0;
+    padding: 0 20px;
     line-height: 1.2;
     text-align: center;
     display: block;
@@ -153,10 +156,10 @@ onMounted(() => {
   gap: 10px;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .hero-content {
     padding: 0 20px;
+
     h3 {
       font-size: 2.5rem;
     }

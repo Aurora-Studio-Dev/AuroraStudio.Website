@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
 import { gsap } from 'gsap'
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 
 onMounted(() => {
-  // Add hover animations for feature items
   const featureItems = document.querySelectorAll('.feature-item')
   featureItems.forEach((item) => {
     const featureItem = item as HTMLElement
@@ -33,42 +34,44 @@ onMounted(() => {
   <div class="features-section-container">
     <div class="features-section-content">
       <div class="features-section-header">
-        <span class="features-section-label">Key Features</span>
-        <h3 class="features-section-title">Why Choose Our Products</h3>
+        <span class="features-section-label">{{ t('home.features.title.a') }}</span>
+        <h3 class="features-section-title">{{ t('home.features.title.b') }}</h3>
         <p class="features-section-description">
-          Built with developer experience and performance in mind
+          {{ t('home.features.description') }}
         </p>
       </div>
 
       <div class="features-list">
         <div class="feature-item">
-          <span class="feature-label">Performance</span>
-          <h3 class="feature-title">High Speed</h3>
+          <span class="feature-label">{{ t('home.features.items.a.label') }}</span>
+          <h3 class="feature-title">{{ t('home.features.items.a.title') }}</h3>
           <p class="feature-description">
-            Optimized codebase for fast loading times and smooth interactions
+            {{ t('home.features.items.a.description') }}
           </p>
         </div>
 
         <div class="feature-item">
-          <span class="feature-label">Design</span>
-          <h3 class="feature-title">Responsive</h3>
+          <span class="feature-label">{{ t('home.features.items.b.label') }}</span>
+          <h3 class="feature-title">{{ t('home.features.items.b.title') }}</h3>
           <p class="feature-description">
-            Perfectly adapts to any screen size for seamless user experience
+            {{ t('home.features.items.b.description') }}
           </p>
         </div>
 
         <div class="feature-item">
-          <span class="feature-label">Interface</span>
-          <h3 class="feature-title">Modern UI</h3>
+          <span class="feature-label">{{ t('home.features.items.c.label') }}</span>
+          <h3 class="feature-title">{{ t('home.features.items.c.title') }}</h3>
           <p class="feature-description">
-            Clean, minimalist design with subtle animations and transitions
+            {{ t('home.features.items.c.description') }}
           </p>
         </div>
 
         <div class="feature-item">
-          <span class="feature-label">Compatibility</span>
-          <h3 class="feature-title">Cross-Platform</h3>
-          <p class="feature-description">Works seamlessly across all modern browsers and devices</p>
+          <span class="feature-label">{{ t('home.features.items.d.label') }}</span>
+          <h3 class="feature-title">{{ t('home.features.items.d.title') }}</h3>
+          <p class="feature-description">
+            {{ t('home.features.items.d.description') }}
+          </p>
         </div>
       </div>
     </div>

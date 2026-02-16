@@ -1,117 +1,181 @@
 <template>
   <div class="navbar-container">
     <div class="message-container">
-      <Message severity="error">
+      <Message severity="error" closable>
         春节佳节，祥瑞盈门。愿君岁岁安康，似 “四时无疾疫，安息悦晨昏”；更祝新岁财源如
         春潮带雨晚来急，野渡无人舟自横” 般不期而至、充盈流转，阖府同沐春晖。 Aurora
         祝你新的一年财源滚滚、学业进步、事业有成！</Message
       >
-      <Message severity="warn" icon="pi pi-info-circle">
-        Please note! We are still in the process of building this website. Currently, it contains
-        many fake examples used to temporarily fill the pages. Do not rely too heavily on the
-        content of this website. During this process, we hope more community developers will join us
-        in developing and maintaining the site!
-      </Message>
+      <Message style="margin-top: 1px" severity="info" icon="pi pi-info" closable>
+        <b>帮助我们国际化！</b>
+        如你所见，我们现在的语言均为机翻，存在大量语法错误和用词不当，欢迎各位语言专家帮助我们一同实现国际化！<br /><b
+          >Help us translate!</b
+        >
+        As you can see, our current texts are all machine-translated, containing many grammatical
+        errors and improper word usage. We welcome language experts to help us achieve
+        internationalization together!</Message
+      >
     </div>
-    <div class="menubar-container">
-      <Menubar :model="items" class="navbar-blur">
-        <template #start>
-          <img src="@/assets/logo.svg" height="40" style="margin: 5px 25px 5px 10px" alt="Logo" />
-        </template>
-        <template #item="{ item, props, hasSubmenu, root }">
-          <router-link
-            v-if="item.route"
-            v-ripple
-            :to="item.route"
-            class="flex items-center router-link"
-            active-class="router-link-active"
-            v-bind="props.action"
+    <Menubar :model="items" class="navbar-blur">
+      <template #start>
+        <img src="@/assets/logo.svg" height="40" style="margin: 5px 25px 5px 10px" alt="Logo" />
+      </template>
+      <template #item="{ item, props, hasSubmenu, root }">
+        <router-link
+          v-if="item.route"
+          v-ripple
+          :to="item.route"
+          class="flex items-center router-link"
+          active-class="router-link-active"
+          v-bind="props.action"
+        >
+          <span>{{ item.label }}</span>
+          <Badge
+            v-if="item.badge"
+            :class="{ 'ml-auto': !root, 'ml-2': root }"
+            :value="item.badge"
+          />
+          <span
+            v-if="item.shortcut"
+            class="ml-auto border border-surface rounded bg-emphasis text-muted-color text-xs p-1"
+            >{{ item.shortcut }}</span
           >
-            <span>{{ item.label }}</span>
-            <Badge
-              v-if="item.badge"
-              :class="{ 'ml-auto': !root, 'ml-2': root }"
-              :value="item.badge"
-            />
-            <span
-              v-if="item.shortcut"
-              class="ml-auto border border-surface rounded bg-emphasis text-muted-color text-xs p-1"
-              >{{ item.shortcut }}</span
-            >
-            <i
-              v-if="hasSubmenu"
-              :class="[
-                'pi pi-angle-down ml-auto',
-                { 'pi-angle-down': root, 'pi-angle-right': !root },
-              ]"
-            ></i>
-          </router-link>
-          <a v-else v-ripple class="flex items-center" v-bind="props.action">
-            <span>{{ item.label }}</span>
-            <Badge
-              v-if="item.badge"
-              :class="{ 'ml-auto': !root, 'ml-2': root }"
-              :value="item.badge"
-            />
-            <span
-              v-if="item.shortcut"
-              class="ml-auto border border-surface rounded bg-emphasis text-muted-color text-xs p-1"
-              >{{ item.shortcut }}</span
-            >
-            <i
-              v-if="hasSubmenu"
-              :class="[
-                'pi pi-angle-down ml-auto',
-                { 'pi-angle-down': root, 'pi-angle-right': !root },
-              ]"
-            ></i>
-          </a>
-        </template>
-        <template #end> </template>
-      </Menubar>
-    </div>
+          <i
+            v-if="hasSubmenu"
+            :class="[
+              'pi pi-angle-down ml-auto',
+              { 'pi-angle-down': root, 'pi-angle-right': !root },
+            ]"
+          ></i>
+        </router-link>
+        <a v-else v-ripple class="flex items-center" v-bind="props.action">
+          <span>{{ item.label }}</span>
+          <Badge
+            v-if="item.badge"
+            :class="{ 'ml-auto': !root, 'ml-2': root }"
+            :value="item.badge"
+          />
+          <span
+            v-if="item.shortcut"
+            class="ml-auto border border-surface rounded bg-emphasis text-muted-color text-xs p-1"
+            >{{ item.shortcut }}</span
+          >
+          <i
+            v-if="hasSubmenu"
+            :class="[
+              'pi pi-angle-down ml-auto',
+              { 'pi-angle-down': root, 'pi-angle-right': !root },
+            ]"
+          ></i>
+        </a>
+      </template>
+      <template #end>
+        <Select
+          v-model="selectedLanguage"
+          :options="languages"
+          optionLabel="name"
+          placeholder="Select a Language"
+          class="w-full md:w-56"
+          style="background-color: transparent"
+          @change="changeLanguage"
+        >
+          <template #value="slotProps">
+            <div v-if="slotProps.value" class="flex items-center">
+              <img
+                :alt="slotProps.value.name"
+                :src="getFlagUrl(slotProps.value.code)"
+                class="mr-2 flag-icon"
+                style="width: 18px; height: 12px; object-fit: cover; margin-right: -10px"
+              />
+            </div>
+          </template>
+          <template #option="slotProps">
+            <div class="flex items-center">
+              <img
+                :alt="slotProps.option.name"
+                :src="getFlagUrl(slotProps.option.code)"
+                class="mr-2 flag-icon"
+                style="width: 18px; height: 12px; object-fit: cover"
+              />
+              <span style="margin-left: 8px">{{ slotProps.option.name }}</span>
+            </div>
+          </template>
+        </Select>
+      </template>
+    </Menubar>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
+import Cookies from 'js-cookie'
 
-const items = ref([
+const { t, locale } = useI18n()
+
+const items = computed(() => [
   {
-    label: 'Home',
+    label: t('nav.home'),
     route: '/',
   },
   {
-    label: 'Projects',
-    route: '/projects',
+    label: t('nav.products'),
+    route: '/products',
   },
   {
-    label: 'About',
+    label: t('nav.about'),
     route: '/about',
   },
   {
-    label: 'Contact',
+    label: t('nav.contact'),
     route: '/contact',
   },
+  {
+    label: t('nav.docs'),
+    route: '/docs',
+  },
 ])
+
+const selectedLanguage = ref()
+const languages = ref([
+  { name: 'English (USA) ', code: 'en' },
+  { name: '简体中文 (PRC)', code: 'zh-CN' },
+])
+
+const getFlagUrl = (code) => {
+  const flagMap = {
+    en: 'https://flagcdn.com/w40/us.png',
+    'zh-CN': 'https://flagcdn.com/w40/cn.png',
+  }
+  return flagMap[code] || 'https://flagcdn.com/w40/us.png'
+}
+
+const changeLanguage = (event) => {
+  locale.value = event.value.code
+  selectedLanguage.value = event.value
+  Cookies.set('language', event.value.code, { expires: 365 })
+}
+
+onMounted(() => {
+  const savedLanguage = Cookies.get('language')
+  if (savedLanguage) {
+    locale.value = savedLanguage
+    selectedLanguage.value = languages.value.find((lang) => lang.code === savedLanguage)
+  } else {
+    selectedLanguage.value = languages.value.find((lang) => lang.code === locale.value)
+  }
+})
 </script>
 
 <style scoped>
 .navbar-container {
   display: flex;
   flex-direction: column;
-}
-
-.message-container {
-  margin-bottom: 20px;
-}
-
-.menubar-container {
-  width: 100%;
+  gap: 5px;
 }
 
 .navbar-blur {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow:
@@ -121,6 +185,12 @@ const items = ref([
   border-radius: 12px;
   margin: 10px;
   z-index: 1000;
+}
+
+.message-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .router-link {
@@ -169,16 +239,9 @@ const items = ref([
     0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
-.dark .navbar-blur {
-  background: rgba(0, 0, 0, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.dark .router-link:hover {
-  background-color: rgba(255, 255, 255, 0.15);
-}
-
-.dark .router-link-active {
-  background-color: rgba(255, 255, 255, 0.2);
+.flag-icon {
+  border-radius: 2px;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+  vertical-align: center;
 }
 </style>

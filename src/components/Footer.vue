@@ -4,33 +4,44 @@
       <div class="footer-content">
         <div class="footer-section brand-info">
           <img class="brand-name" src="@/assets/logo.svg" alt="aurora" height="55px" />
-          <p class="brand-tagline">Unleash your creativity, software shapes the future.</p>
+          <p class="brand-tagline">{{ t('footer.brand.tagline') }}</p>
         </div>
 
         <div class="footer-section services">
-          <h4>Products & Website</h4>
+          <h4>{{ t('footer.services.title') }}</h4>
           <ul>
-            <li><a href="https://docs.aurorastudio.top/">Docs</a></li>
-            <li><a href="#">SimpleSSH</a></li>
-            <li><a href="#">StarsAICopilot</a></li>
+            <li>
+              <a href="https://docs.aurorastudio.top/">{{ t('footer.services.docs') }}</a>
+            </li>
+            <li>
+              <a href="#">{{ t('footer.services.simpleSSH') }}</a>
+            </li>
+            <li>
+              <a href="#">{{ t('footer.services.starsAICopilot') }}</a>
+            </li>
           </ul>
         </div>
 
         <div class="footer-section contact">
-          <h4>Contact</h4>
+          <h4>{{ t('footer.contact.title') }}</h4>
           <ul>
-            <li><b>Email</b> thzstudent1145@163.com</li>
+            <li>
+              <b>{{ t('footer.contact.emailLabel') }}</b> {{ t('footer.contact.email') }}
+            </li>
           </ul>
-          <Button label="Learn more ways" icon="pi pi-users" class="p-button-outlined" />
+          <Button
+            :label="t('footer.contact.button')"
+            icon="pi pi-users"
+            class="p-button-outlined"
+          />
         </div>
       </div>
 
       <div class="footer-bottom">
         <div class="copyright">
           <p>
-            <a class="icp" href="https://beian.miit.gov.cn/"> 粤ICP备2025371287号-1 </a
-            ><br />Copyright &copy; 2023 - {{ new Date().getFullYear() }} Aurora Studio. All rights
-            reserved.
+            <a class="link" href="https://beian.miit.gov.cn/"> {{ t('footer.copyright.icp') }} </a
+            ><br />{{ t('footer.copyright.text', { year: new Date().getFullYear() }) }}
           </p>
         </div>
         <div class="back-to-top">
@@ -44,8 +55,14 @@
 </template>
 
 <script>
+import { useI18n } from 'vue-i18n'
+
 export default {
   name: 'DesignerFooter',
+  setup() {
+    const { t } = useI18n()
+    return { t }
+  },
   methods: {
     scrollToTop() {
       window.scrollTo({
@@ -130,42 +147,6 @@ export default {
   font-style: normal;
 }
 
-.social-links {
-  display: flex;
-  gap: 2rem;
-}
-
-.social-link {
-  color: #555;
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  position: relative;
-  padding: 8px 16px;
-  border-radius: 30px;
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.social-link:hover {
-  color: white;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-}
-
-.instagram:hover {
-  background: linear-gradient(45deg, #405de6, #5851db, #833ab4);
-}
-
-.behance:hover {
-  background: linear-gradient(45deg, #1769ff, #0057e7);
-}
-
-.dribbble:hover {
-  background: linear-gradient(45deg, #ea4c89, #d63572);
-}
-
 .footer-section ul {
   list-style: none;
   padding: 0;
@@ -232,18 +213,6 @@ export default {
   font-size: 0.9rem;
   color: #777;
   line-height: 1.6;
-}
-
-.icp {
-  color: #999;
-  text-decoration: none;
-  border-bottom: 1px dotted #ccc;
-  transition: all 0.3s ease;
-}
-
-.icp:hover {
-  color: #666;
-  border-bottom-style: solid;
 }
 
 .top-button {

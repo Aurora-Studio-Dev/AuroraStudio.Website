@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import NavBar from '@/components/NavBar.vue'
 import Footer from '@/components/Footer.vue'
+import CookieMsgCard from '@/components/CookieMsgCard.vue'
 </script>
 
 <template>
@@ -14,6 +15,7 @@ import Footer from '@/components/Footer.vue'
     <footer>
       <Footer />
     </footer>
+    <CookieMsgCard />
   </div>
 </template>
 
@@ -42,10 +44,5 @@ import Footer from '@/components/Footer.vue'
   margin-right: 15%;
   width: 70%;
   max-width: 1200px;
-}
-
-.main-area {
-  min-height: 100vh;
-  flex: 1;
 }
 </style>
