@@ -271,20 +271,19 @@ export default {
   position: relative;
   text-decoration: none;
   color: #007bff;
-
-  &::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    background-color: #007bff;
-    left: 0;
-    bottom: -2px;
-    transition: width 0.3s ease;
-  }
-
-  &:hover::after {
-    width: 100%;
-  }
 }
-</style>
+
+.icp::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #007bff;
+  left: 0;
+  bottom: -2px;
+  transition: width 0.3s ease;
+}
+
+.icp:hover::after {
+  width: 100%;
+}
