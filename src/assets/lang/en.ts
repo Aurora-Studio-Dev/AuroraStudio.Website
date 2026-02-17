@@ -25,7 +25,7 @@ export default {
     contact: {
       title: 'Contact',
       emailLabel: 'Email',
-      email: 'thzstudent1145@163.com',
+      email: "thzstudent1145{'@'}163.com",
       button: 'Learn more ways',
     },
     copyright: {

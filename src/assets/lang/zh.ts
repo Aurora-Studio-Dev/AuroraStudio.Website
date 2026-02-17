@@ -25,7 +25,7 @@ export default {
     contact: {
       title: '联系我们',
       emailLabel: '邮箱',
-      email: 'thzstudent1145@163.com',
+      email: "thzstudent1145{'@'}163.com",
       button: '了解更多方式',
     },
     copyright: {
@@ -133,7 +133,7 @@ export default {
       },
       button: '了解更多方式',
       backgroundCopyrightInfo:
-        '我们已与原作者沟通，并获得了图片原作者提供的 \'<a class="link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>\'授权。',
+        '我们已与原作者沟通，并获得了图片原作者提供的 CC BY-NC-SA 4.0 授权。',
     },
   },
 }
