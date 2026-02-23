@@ -28,10 +28,6 @@ export default {
       email: "thzstudent1145{'@'}163.com",
       button: '了解更多方式',
     },
-    copyright: {
-      icp: '粤ICP备2025371287号-1',
-      text: 'Copyright © 2023 - {year} Aurora. All rights reserved.',
-    },
     backToTop: '返回顶部',
   },
   home: {
@@ -133,7 +129,7 @@ export default {
       },
       button: '了解更多方式',
       backgroundCopyrightInfo:
-        '我们已与原作者沟通，并获得了图片原作者提供的 CC BY-NC-SA 4.0 授权。',
+        '我们已与原作者沟通，并获得了图片原作者提供的 \'<a class="link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>\' 授权。',
     },
   },
 }

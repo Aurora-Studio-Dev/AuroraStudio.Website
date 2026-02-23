@@ -1,5 +1,6 @@
 <template>
   <div class="navbar-container">
+    <!-- 
     <div class="message-container">
       <Message severity="error" closable>
         春节佳节，祥瑞盈门。愿君岁岁安康，似 “四时无疾疫，安息悦晨昏”；更祝新岁财源如
@@ -16,9 +17,15 @@
         internationalization together!</Message
       >
     </div>
+    -->
     <Menubar :model="items" class="navbar-blur">
       <template #start>
-        <img src="@/assets/logo.svg" height="40" style="margin: 5px 25px 5px 10px" alt="Logo" />
+        <img
+          src="@/assets/logo.svg"
+          height="40"
+          style="margin: 5px 25px 5px 10px; align-self: center"
+          alt="Logo"
+        />
       </template>
       <template #item="{ item, props, hasSubmenu, root }">
         <router-link

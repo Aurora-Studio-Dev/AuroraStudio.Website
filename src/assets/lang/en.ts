@@ -28,10 +28,6 @@ export default {
       email: "thzstudent1145{'@'}163.com",
       button: 'Learn more ways',
     },
-    copyright: {
-      icp: '粤ICP备2025371287号-1',
-      text: 'Copyright © 2023 - {year} Aurora Studio. All rights reserved.',
-    },
     backToTop: 'Back to top',
   },
   home: {

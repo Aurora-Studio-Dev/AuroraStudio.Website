@@ -292,7 +292,7 @@ const products = ref([
   height: 100%;
   z-index: 0;
   overflow: hidden;
-  pointer-events: none; /* 禁用鼠标事件 */
+  pointer-events: none;
 }
 
 .geometric-container {
@@ -381,10 +381,6 @@ const products = ref([
   object-fit: contain;
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 12px;
-  box-shadow:
-    0 8px 16px rgba(0, 0, 0, 0.1),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.3);
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
 }
 
 .product-image:hover {
@@ -491,30 +487,197 @@ const products = ref([
   border: none;
 }
 
-@media (max-width: 768px) {
+/* 响应式设计 */
+@media (max-width: 1400px) {
+  .product-content {
+    width: 90%;
+  }
+
+  .product-name {
+    font-size: 2.2rem;
+  }
+
+  .product-description {
+    font-size: 1.2rem;
+  }
+
+  .product-info {
+    padding: 2.5rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .product-content {
+    width: 95%;
+  }
+
+  .product-name {
+    font-size: 2rem;
+  }
+
+  .product-description {
+    font-size: 1.1rem;
+  }
+
+  .product-info {
+    padding: 2rem;
+  }
+
+  .product-image-container {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 992px) {
   .product-card {
     height: auto;
+    min-height: 80vh;
   }
 
   .product-content {
     flex-direction: column;
     width: 90%;
+    gap: 2rem;
   }
 
+  .product-info,
   .product-image-container {
     width: 100%;
-    height: 50vh;
   }
 
   .product-info {
-    width: 100%;
-    padding: 2rem;
     text-align: center;
     align-items: center;
+    padding: 1.5rem;
+  }
+
+  .product-image-container {
+    height: 60vh;
+    padding: 20px;
   }
 
   .product-name {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .product-description {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .action-buttons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-card {
+    min-height: 70vh;
+  }
+
+  .product-content {
+    width: 95%;
+    gap: 1.5rem;
+  }
+
+  .product-info {
+    padding: 1rem;
+  }
+
+  .product-image-container {
+    height: 50vh;
+    padding: 15px;
+    border-radius: 15px;
+  }
+
+  .product-name {
+    font-size: 1.6rem;
+  }
+
+  .product-description {
+    font-size: 0.9rem;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .wishlist-btn,
+  .cart-btn {
+    width: 100%;
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 576px) {
+  .product-card {
+    min-height: 60vh;
+  }
+
+  .product-content {
+    width: 100%;
+    gap: 1rem;
+    padding: 0 10px;
+  }
+
+  .product-info {
+    padding: 0.8rem;
+  }
+
+  .product-image-container {
+    height: 40vh;
+    padding: 10px;
+    border-radius: 12px;
+  }
+
+  .product-name {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .product-description {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .chip {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .product-card {
+    min-height: 50vh;
+  }
+
+  .product-content {
+    gap: 0.8rem;
+  }
+
+  .product-info {
+    padding: 0.5rem;
+  }
+
+  .product-image-container {
+    height: 35vh;
+    padding: 8px;
+  }
+
+  .product-name {
+    font-size: 1.2rem;
+  }
+
+  .product-description {
+    font-size: 0.75rem;
+  }
+
+  .button {
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
   }
 }
 </style>

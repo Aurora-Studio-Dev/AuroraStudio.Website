@@ -3,7 +3,7 @@
     <div class="footer-container">
       <div class="footer-content">
         <div class="footer-section brand-info">
-          <img class="brand-name" src="@/assets/logo.svg" alt="aurora" height="55px" />
+          <img class="brand-logo" src="@/assets/logo.svg" alt="Aurora Studio" height="55px" />
           <p class="brand-tagline">{{ t('footer.brand.tagline') }}</p>
         </div>
 
@@ -40,8 +40,9 @@
       <div class="footer-bottom">
         <div class="copyright">
           <p>
-            <a class="link" href="https://beian.miit.gov.cn/"> {{ t('footer.copyright.icp') }} </a
-            ><br />{{ t('footer.copyright.text', { year: new Date().getFullYear() }) }}
+            <a class="link" href="https://beian.miit.gov.cn/"><!--粤ICP备2025371287号-1--></a><br />
+            Copyright © 2023 - {{ new Date().getFullYear() }} CODEPEX ( The original AURORA ). All
+            rights reserved.
           </p>
         </div>
         <div class="back-to-top">
@@ -65,10 +66,7 @@ export default {
   },
   methods: {
     scrollToTop() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      })
+      window.scrollTo({ top: 0, behavior: 'smooth' })
     },
   },
 }
@@ -117,7 +115,7 @@ export default {
   background: linear-gradient(90deg, #666, transparent);
 }
 
-.brand-name {
+.brand-logo {
   font-size: 2.2rem;
   font-weight: 300;
   letter-spacing: 4px;
@@ -258,33 +256,12 @@ export default {
     gap: 1.5rem;
   }
 
-  .brand-name {
+  .brand-logo {
     font-size: 1.8rem;
   }
 
   .social-links {
     justify-content: center;
   }
-}
-
-.icp {
-  position: relative;
-  text-decoration: none;
-  color: #007bff;
-}
-
-.icp::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  background-color: #007bff;
-  left: 0;
-  bottom: -2px;
-  transition: width 0.3s ease;
-}
-
-.icp:hover::after {
-  width: 100%;
 }
 </style>

@@ -13,7 +13,9 @@ declare module 'vue' {
   export interface GlobalComponents {
     Badge: typeof import('primevue/badge')['default']
     Button: typeof import('primevue/button')['default']
+    Card: typeof import('primevue/card')['default']
     Carousel: typeof import('primevue/carousel')['default']
+    CategorySection: typeof import('./src/components/products-view/CategorySection.vue')['default']
     Chip: typeof import('primevue/chip')['default']
     ContactSection: typeof import('./src/components/home-view/ContactSection.vue')['default']
     CookieMsgCard: typeof import('./src/components/CookieMsgCard.vue')['default']
@@ -25,10 +27,12 @@ declare module 'vue' {
     Menubar: typeof import('primevue/menubar')['default']
     Message: typeof import('primevue/message')['default']
     NavBar: typeof import('./src/components/NavBar.vue')['default']
+    ProductList: typeof import('./src/components/products-view/ProductList.vue')['default']
     ProductsSection: typeof import('./src/components/home-view/ProductsSection.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Select: typeof import('primevue/select')['default']
+    TabMenu: typeof import('primevue/tabmenu')['default']
     ToolsSection: typeof import('./src/components/home-view/ToolsSection.vue')['default']
   }
   export interface GlobalDirectives {

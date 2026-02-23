@@ -73,7 +73,7 @@ onMounted(() => {
 <template>
   <div class="hero-content" ref="heroContentRef">
     <h3 ref="titleRef">
-      Unleash your
+      From
       <span
         style="
           background: linear-gradient(to right, purple, blue);
@@ -81,26 +81,18 @@ onMounted(() => {
           background-clip: text;
           -webkit-text-fill-color: transparent;
         "
-        >creativity,</span
-      ><br />
-      <span
-        style="
-          background: linear-gradient(to right, #ff0000, #ffff00);
-          -webkit-background-clip: text;
-          background-clip: text;
-          -webkit-text-fill-color: transparent;
-        "
-        >software</span
+        >the source of an idea</span
       >
-      shapes the
+      <br />
+      to
       <span
         style="
-          background: linear-gradient(to right, black, white);
+          background: linear-gradient(to right, black, gray, white);
           -webkit-background-clip: text;
           background-clip: text;
           -webkit-text-fill-color: transparent;
         "
-        >future.</span
+        >the summit of execution.</span
       >
     </h3>
     <p style="white-space: pre-line">
