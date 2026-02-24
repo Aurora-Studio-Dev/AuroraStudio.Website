@@ -40,7 +40,8 @@
       <div class="footer-bottom">
         <div class="copyright">
           <p>
-            <a class="link" href="https://beian.miit.gov.cn/"><!--粤ICP备2025371287号-1--></a><br />
+            aurorastudio.top:
+            <a class="link" href="https://beian.miit.gov.cn/">粤ICP备2025371287号-1</a><br />
             Copyright © 2023 - {{ new Date().getFullYear() }} CODEPEX ( The original AURORA ). All
             rights reserved.
           </p>
